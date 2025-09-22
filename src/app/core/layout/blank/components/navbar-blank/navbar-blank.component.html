@@ -1,0 +1,42 @@
+<nav class="fixed top-0 start-0 end-0 shadow">
+  <p-menubar [model]="items" class="bg-surface-100 w-full mx-auto max-w-screen-2xl border-none">
+    <ng-template #start>
+      <a routerLink="/home" class="me-3">
+        <span class="text-2xl hover:text-primary-400 text-text font-semibold"
+          >{{ 'app_name' | translate }}
+        </span></a
+      >
+    </ng-template>
+    <ng-template #item let-item let-root="root">
+      @if (item.routerLink) {
+      <a
+        pRipple
+        class="flex items-center text-sm p-menubar-item-link mb-2 sm:mb-0 hover:text-white hover:bg-primary-500 hover:rounded-sm"
+        [routerLink]="item.routerLink"
+        routerLinkActive=" bg-primary-500 text-white  rounded-sm font-bold"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <i [class]="item.icon"></i>
+        <span>{{ item.label | translate }}</span>
+        @if (item.badge) {
+        <p-badge
+          [ngClass]="{ 'ml-auto': !root, 'ml-2': root }"
+          class="dark:bg-gray-200 dark:text-white bg-gray-900/25"
+          [value]="item.badge"
+        />
+        }
+      </a>
+      }
+    </ng-template>
+    <ng-template #end>
+      <div class="flex justify-center items-center gap-2">
+        <p-toggle-switch [formControl]="theme" (click)="toggleTheme()"></p-toggle-switch>
+        <p-button
+          [label]="lang()"
+          styleClass="bg-transparent border-none text-text hover:text-primary-500 font-semibold uppercase"
+          (click)="changeLang()"
+        ></p-button>
+      </div>
+    </ng-template>
+  </p-menubar>
+</nav>

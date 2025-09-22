@@ -5,7 +5,6 @@
 @custom-variant dark (&:where(.dark, .dark *));
 @theme {
   --color-*: initial;
-
   /* Primary */
   --color-primary-50: #eef6ff;
   --color-primary-100: #d9ecff;
@@ -53,6 +52,8 @@
   --color-surface-200: #f3f4f6;
   --color-surface-800: #1f2937;
   --color-surface-900: #111827;
+  --color-white: #fff;
+  --color-black: #000;
 
   /* Text */
   --color-text: #111827;
@@ -103,6 +104,24 @@
   --color-surface-200: #374151;
   --color-surface-800: #f3f4f6;
   --color-surface-900: #f9fafb;
+  --color-white: #fff;
+  --color-black: #000;
 
   --color-text: #f9fafb;
+}
+body {
+  background-color: var(--color-surface-100);
+}
+/* When checked  light dark mode*/
+.p-toggleswitch.p-toggleswitch-checked .p-toggleswitch-slider {
+  background-color: var(--color-primary-500);
+  border-color: var(--color-primary-500);
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

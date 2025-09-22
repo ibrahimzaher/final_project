@@ -1,3 +1,18 @@
 {
-    "title":"hello"
+    "app_name":"🛒 Zshop",
+    "nav": {
+    "home": "Home",
+    "products": "Products",
+    "categories": "Categories",
+    "cart": "Cart",
+    "wishlist": "Wishlist",
+    "orders": "Orders"
+  },
+   "menu": {
+    "dashboard": "Dashboard",
+    "users": "Users",
+    "products": "Products",
+    "categories": "Categories",
+    "orders": "Orders"
+  }
 }

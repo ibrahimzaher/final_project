@@ -1,0 +1,20 @@
+<nav class="fixed top-0 start-0 end-0 bg-surface-100 shadow">
+  <p-toolbar class="border-none w-full bg-transparent max-w-screen-2xl mx-auto">
+    <ng-template #start>
+      <span
+        routerLink="/login"
+        class="text-2xl text-text font-semibold hover:text-primary-400 cursor-pointer"
+        >{{ 'app_name' | translate }}</span
+      >
+    </ng-template>
+
+    <ng-template #end>
+      <p-toggleswitch [formControl]="toggle" (click)="changeTheme()" />
+      <p-button
+        [label]="language()"
+        styleClass="uppercase bg-transparent text-text border-none mx-2 hover:text-primary-500"
+        (click)="changeLang()"
+      />
+    </ng-template>
+  </p-toolbar>
+</nav>

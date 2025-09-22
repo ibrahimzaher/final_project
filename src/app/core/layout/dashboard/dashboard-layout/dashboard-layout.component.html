@@ -1,0 +1,227 @@
+<div class="flex min-h-screen flex-wrap">
+  <div class="hidden lg:flex flex-col items-center justify-between h-screen bg-transparent shadow">
+    <span class="text-2xl font-bold text-center mb-3 pt-5 text-surface-900">
+      {{ 'app_name' | translate }}
+    </span>
+
+    <ul class="list-none py-2 mt-2 h-full overflow-y-auto no-scrollbar">
+      <li>
+        <a
+          pRipple
+          routerLink="/dashboard"
+          routerLinkActive="bg-primary-500! text-white"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="flex items-center cursor-pointer py-3 px-10 rounded-border bg-white text-black shadow mb-5 text-center hover:bg-primary-500 hover:text-white duration-150 transition-colors p-ripple"
+        >
+          <i class="pi pi-th-large mr-2"></i>
+          <span class="font-medium ms-2">{{ 'menu.dashboard' | translate }}</span>
+        </a>
+      </li>
+      <li>
+        <a
+          pRipple
+          routerLink="/dashboard/users"
+          routerLinkActive="bg-primary-500! text-white"
+          class="flex items-center cursor-pointer py-3 px-10 rounded-border bg-white text-black shadow mb-5 text-center hover:bg-primary-500 hover:text-white duration-150 transition-colors p-ripple"
+        >
+          <i class="pi pi-users mr-2"></i>
+          <span class="font-medium ms-2">{{ 'menu.users' | translate }}</span>
+        </a>
+      </li>
+      <li>
+        <a
+          pRipple
+          routerLink="/dashboard/products"
+          routerLinkActive="bg-primary-500! text-white"
+          class="flex items-center cursor-pointer py-3 px-10 rounded-border bg-white text-black shadow mb-5 text-center hover:bg-primary-500 hover:text-white duration-150 transition-colors p-ripple"
+        >
+          <i class="pi pi-shopping-bag mr-2"></i>
+          <span class="font-medium ms-2">{{ 'menu.products' | translate }}</span>
+        </a>
+      </li>
+      <li>
+        <a
+          pRipple
+          routerLink="/dashboard/categories"
+          routerLinkActive="bg-primary-500! text-white"
+          class="flex items-center cursor-pointer py-3 px-10 rounded-border bg-white text-black shadow mb-5 text-center hover:bg-primary-500 hover:text-white duration-150 transition-colors p-ripple"
+        >
+          <i class="pi pi-tags mr-2"></i>
+          <span class="font-medium ms-2">{{ 'menu.categories' | translate }}</span>
+        </a>
+      </li>
+      <li>
+        <a
+          pRipple
+          routerLink="/dashboard/orders"
+          routerLinkActive="bg-primary-500! text-white"
+          class="flex items-center cursor-pointer py-3 px-10 rounded-border bg-white text-black shadow mb-5 text-center hover:bg-primary-500 hover:text-white duration-150 transition-colors p-ripple"
+        >
+          <i class="pi pi-shopping-cart mr-2"></i>
+          <span class="font-medium ms-2">{{ 'menu.orders' | translate }}</span>
+        </a>
+      </li>
+    </ul>
+
+    <div class="mt-auto">
+      <hr class="mb-4 mx-4 border-t border-0 border-surface" />
+      <a
+        pRipple
+        routerLinkActive="bg-primary-500! text-white"
+        class="m-4 flex items-center cursor-pointer py-3 px-10 gap-2 rounded-border bg-white text-black shadow mb-5 text-center hover:bg-primary-500 hover:text-white duration-150 transition-colors p-ripple"
+      >
+        <p-avatar
+          image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png"
+          shape="circle"
+        />
+        <span class="font-bold">Usern Name</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="flex lg:hidden justify-center">
+    <p-drawer
+      #drawerRef
+      [(visible)]="visible"
+      [modal]="true"
+      [dismissible]="true"
+      [showCloseIcon]="false"
+      transitionOptions="500ms cubic-bezier(0.4, 0, 0.2, 1)"
+    >
+      <ng-template #headless>
+        <div class="flex flex-col items-center justify-between h-screen bg-transparent shadow">
+          <div class="flex justify-between px-6 pt-4 shrink-0">
+            <span class="text-2xl font-bold text-center mb-3 text-surface-900 me-5">
+              {{ 'app_name' | translate }}
+            </span>
+            <p-button
+              type="button"
+              (click)="closeCallback($event)"
+              icon="pi pi-times"
+              styleClass="h-8 w-8 rounded-2xl hover:scale-101 border-none text-white bg-primary-500"
+            ></p-button>
+          </div>
+
+          <ul class="list-none py-2 mt-2 h-full overflow-y-auto no-scrollbar">
+            <li>
+              <a
+                pRipple
+                routerLink="/dashboard"
+                routerLinkActive="bg-primary-500! text-white"
+                [routerLinkActiveOptions]="{ exact: true }"
+                (click)="closeCallback($event)"
+                class="flex items-center cursor-pointer py-3 px-10 rounded-border bg-white text-black shadow mb-5 text-center hover:bg-primary-500 hover:text-white duration-150 transition-colors p-ripple"
+              >
+                <i class="pi pi-th-large mr-2"></i>
+                <span class="font-medium ms-2">{{ 'menu.dashboard' | translate }}</span>
+              </a>
+            </li>
+            <li>
+              <a
+                pRipple
+                routerLink="/dashboard/users"
+                routerLinkActive="bg-primary-500! text-white"
+                (click)="closeCallback($event)"
+                class="flex items-center cursor-pointer py-3 px-10 rounded-border bg-white text-black shadow mb-5 text-center hover:bg-primary-500 hover:text-white duration-150 transition-colors p-ripple"
+              >
+                <i class="pi pi-users mr-2"></i>
+                <span class="font-medium ms-2">{{ 'menu.users' | translate }}</span>
+              </a>
+            </li>
+            <li>
+              <a
+                pRipple
+                routerLink="/dashboard/products"
+                routerLinkActive="bg-primary-500! text-white"
+                (click)="closeCallback($event)"
+                class="flex items-center cursor-pointer py-3 px-10 rounded-border bg-white text-black shadow mb-5 text-center hover:bg-primary-500 hover:text-white duration-150 transition-colors p-ripple"
+              >
+                <i class="pi pi-shopping-bag mr-2"></i>
+                <span class="font-medium ms-2">{{ 'menu.products' | translate }}</span>
+              </a>
+            </li>
+            <li>
+              <a
+                pRipple
+                routerLink="/dashboard/categories"
+                (click)="closeCallback($event)"
+                routerLinkActive="bg-primary-500! text-white"
+                class="flex items-center cursor-pointer py-3 px-10 rounded-border bg-white text-black shadow mb-5 text-center hover:bg-primary-500 hover:text-white duration-150 transition-colors p-ripple"
+              >
+                <i class="pi pi-tags mr-2"></i>
+                <span class="font-medium ms-2">{{ 'menu.categories' | translate }}</span>
+              </a>
+            </li>
+            <li>
+              <a
+                pRipple
+                routerLink="/dashboard/orders"
+                routerLinkActive="bg-primary-500! text-white"
+                (click)="closeCallback($event)"
+                class="flex items-center cursor-pointer py-3 px-10 rounded-border bg-white text-black shadow mb-5 text-center hover:bg-primary-500 hover:text-white duration-150 transition-colors p-ripple"
+              >
+                <i class="pi pi-shopping-cart mr-2"></i>
+                <span class="font-medium ms-2">{{ 'menu.orders' | translate }}</span>
+              </a>
+            </li>
+          </ul>
+
+          <div class="mt-auto">
+            <hr class="mb-4 mx-4 border-t border-0 border-surface" />
+            <a
+              pRipple
+              routerLinkActive="bg-primary-500! text-white"
+              (click)="closeCallback($event)"
+              class="m-4 flex items-center cursor-pointer py-3 px-10 gap-2 rounded-border bg-white text-black shadow mb-5 text-center hover:bg-primary-500 hover:text-white duration-150 transition-colors p-ripple"
+            >
+              <p-avatar
+                image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png"
+                shape="circle"
+              />
+              <span class="font-bold">User Name</span>
+            </a>
+          </div>
+        </div>
+      </ng-template>
+    </p-drawer>
+
+    @if( language() == 'en' ){
+    <p-button
+      (click)="visible = true"
+      icon="pi pi-arrow-right"
+      styleClass="bg-primary-500 size-8 p-0 m-4 transition-transform duration-300 hover:rotate-90 hover:scale-110"
+    />
+    }@else{
+    <p-button
+      (click)="visible = true"
+      icon="pi pi-arrow-left"
+      styleClass="bg-primary-500 size-8 p-0 m-4 transition-transform duration-300 hover:-rotate-90 hover:scale-110"
+    />
+    }
+  </div>
+
+  <div class="grow">
+    <nav class="relative w-full bg-surface-100">
+      <p-toolbar class="border-none w-full bg-transparent max-w-screen-2xl mx-auto">
+        <ng-template #start>
+          <span
+            routerLink="/dashboard"
+            class="text-2xl lg:hidden text-text font-semibold hover:text-primary-400 cursor-pointer"
+          >
+            {{ 'app_name' | translate }}
+          </span>
+        </ng-template>
+
+        <ng-template #end>
+          <p-toggleswitch [formControl]="toggle" (click)="changeTheme()" />
+          <p-button
+            [label]="language()"
+            styleClass="uppercase bg-transparent text-text border-none mx-2 hover:text-primary-500"
+            (click)="changeLang()"
+          />
+        </ng-template>
+      </p-toolbar>
+    </nav>
+    <router-outlet></router-outlet>
+  </div>
+</div>
